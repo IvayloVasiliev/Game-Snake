@@ -25,8 +25,7 @@ namespace SimpleSnake.GameObjects
             foodIndex = RandomFoodNumber;
             snakeElements = new Queue<Point>();
             GetFoods();
-            CreateSnake();
-            
+            CreateSnake();        
         }
 
         private void CreateSnake()
@@ -85,6 +84,8 @@ namespace SimpleSnake.GameObjects
                 GetNextPoint(direction, currentSnakeHead);
             }
 
+            wall.AddPoints(length);
+            wall.PlayerInfo();
             foodIndex = RandomFoodNumber;
             foods[foodIndex].SetRandomPosition(snakeElements); 
         }
@@ -99,7 +100,7 @@ namespace SimpleSnake.GameObjects
         private void GetNextPoint(Point direction, Point snakeHead)
         {
             nextLeftX = snakeHead.LeftX + direction.LeftX;
-            nextTopY = snakeHead.LeftX + direction.LeftX;
+            nextTopY = snakeHead.TopY + direction.TopY;
         }
 
     }

@@ -7,11 +7,13 @@ namespace SimpleSnake.GameObjects
     public class Wall : Point
     {
         private const char wallSymbol = '\u25A0';
+        private int playerPoints;
 
         public Wall(int leftX, int topY) 
             : base(leftX, topY)
         {
             InitializeWallBorders();
+            PlayerInfo();
 
         }
 
@@ -43,6 +45,19 @@ namespace SimpleSnake.GameObjects
                 Draw(leftX, topY, wallSymbol);
             }
         
+        }
+
+        public void AddPoints(int points)
+        {
+            playerPoints += points;
+        }
+
+        public void PlayerInfo()
+        {
+            Console.SetCursorPosition(LeftX + 3, 0);
+            Console.Write($"Player points: {playerPoints}");
+            Console.SetCursorPosition(LeftX + 3, 1);
+            Console.Write($"Player points: {playerPoints /10}");
         }
 
     }

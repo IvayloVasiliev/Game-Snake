@@ -48,14 +48,6 @@ namespace SimpleSnake.Core
             }
         }
 
-        private void PlayerInfo()
-        {
-            Console.SetCursorPosition(wall.LeftX + 3, 0);
-            Console.Write("Player points: ");
-            Console.SetCursorPosition(wall.LeftX + 3, 1);
-            Console.Write("Player level: ");
-        }
-
         private void AskUserForRestart()
         {
             int leftX = wall.LeftX + 2;
